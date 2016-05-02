@@ -92,11 +92,10 @@ module.exports = function (grunt) {
             dev: {
                 context: '<%= project.root %>/dress/js',
                 entry: {
-                    server: './a',
-                    client: './b'
+                    dress: './dress'
                 },
                 output: {
-                    path: '<%= project.root %>/dress/js/build',
+                    path: path.join(__dirname)+'/js/dress',
                     filename: '[name].bundle.js'
                 },
                 externals: {

@@ -10,12 +10,13 @@
 	  *
 	  */
 	-->
-	<cms_index_index>
+	
+	<!-- <cms_index_index>
 		<reference name="content">
 			<block type="ibanners/view" name="ibanners.homepage" before="-">
 				<action method="setGroupCode"><group_code>home</group_code></action>
 				<action method="setDisplayControls"><controls>1</controls></action>
 			</block>
 		</reference>
-	</cms_index_index>
+	</cms_index_index> -->
 </layout>

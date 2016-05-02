@@ -1,15 +1,17 @@
 <?xml version="1.0"?>
 <config>
 	<menu>
-		<cms>
+		<zhangfan translate="title" module="cms">
+		<title>最新开发</title>
+		<sort_order>100</sort_order>
 			<children>
 				<ibanners>
-					<title>iBanners</title>
+					<title>广告管理</title>
 					<sort_order>24</sort_order>
 					<action>adminhtml/iBanners</action>
 				</ibanners>
 			</children>
-		</cms>
+		</zhangfan>
 	</menu>
 	<acl>
 		<resources>

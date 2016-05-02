@@ -1,0 +1,12 @@
+<div class="home_banners_3">
+    <ul>
+    <?php $Banners = Mage::getModel('ibanners/group')->getBanners("home_banners_3"); ?>
+    <?php foreach($Banners as $banner): ?>
+        <li>
+            <a href="<?php echo $banner['url']; ?>">
+                <img title="<?php echo $banner['title'];?>" alt="<?php echo $banner['alt'];?>" src="<?php echo $banner['image_url'];?>" />
+            </a>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+</div>

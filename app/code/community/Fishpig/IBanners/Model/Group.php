@@ -47,7 +47,25 @@ class Fishpig_iBanners_Model_Group extends Mage_Core_Model_Abstract
 		
 		return $this->_getData('banner_collection');
 	}
-	
+
+	public function getBanners($code)
+	{
+		$banners = array();
+		$group = $this->loadByCode($code);
+		if ($group->getId() && $group->getIsEnabled()) {
+			$group->getBannerCollection();
+		}
+		foreach ($group->getBannerCollection() as $banner) {
+			$banners[] = array(
+				'url' => $banner->getUrl(),
+				'image_url' => $banner->getImageUrl(),
+				'title'=>$banner->getAltText(),
+				'alt'=>$banner->getAltText(),
+				'html'=>$banner->getHtml(),
+			);
+		}
+		return $banners;
+	}
 	/**
 	 * Retrieve the amount of banners in this group
 	 *

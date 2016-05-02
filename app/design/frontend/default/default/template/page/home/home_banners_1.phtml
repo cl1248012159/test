@@ -1,0 +1,8 @@
+<div class="home_banners_1 owl-carousel">
+    <?php $Banners = Mage::getModel('ibanners/group')->getBanners("home_banners_1"); ?>
+    <?php foreach($Banners as $banner): ?>
+        <a class="item" href="<?php echo $banner['url']; ?>">
+            <img title="<?php echo $banner['title'];?>" alt="<?php echo $banner['alt'];?>" src="<?php echo $banner['image_url'];?>"/>
+        </a>
+    <?php endforeach; ?>
+</div>

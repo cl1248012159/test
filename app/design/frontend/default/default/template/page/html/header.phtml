@@ -1,0 +1,79 @@
+<header>
+    <div class="header">
+        <div class="top">
+            <div class="top_currency">
+                <?php echo $this->getChildHtml('top_currency') ?>
+            </div>
+            <div class="welcome_message">
+                <div id=demo>
+                    <div id=demo1>
+                        <?php echo $this->getChildHtml('welcome') ?>
+                        <?php $Banners = Mage::getModel('ibanners/group')->getBanners("promotion"); ?>
+                        <?php foreach($Banners as $banner): ?>
+                            <?php echo $banner['html']; ?>
+                        <?php endforeach; ?>
+                        <?php echo $this->getAdditionalHtml() ?>
+                    </div>
+                    <div id=demo2></div>
+                </div>
+            </div>
+            <div class="top_nav">
+                <ul>
+                    <li>
+                        <a href="#">Join Free</a> or <a href="#">Log in</a>
+                    </li>
+                    <li>
+                        <a href="#">Help</a>
+                    </li>
+                    <li>
+                        <a href="#">Customer Service</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_content">
+            <div class="header_search">
+                <?php echo $this->getChildHtml('top_search') ?>
+            </div>
+            <div class="logo">
+                <?php if ($this->getIsHomePage()):?>
+                <h1 class="logo">
+                    <strong><?php echo $this->getLogoAlt() ?></strong>
+                    <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+                        <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                    </a>
+                </h1>
+                <?php else:?>
+                    <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+                        <strong><?php echo $this->getLogoAlt() ?></strong>
+                        <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                    </a>
+                <?php endif?>
+
+            </div>
+            <div class="header-right">
+                <a href="#" class="favor"><em>favor</em></a>
+                <a href="#" class="bag">
+                    <em>bag</em>
+                    <span>Bag</span>
+                    <span> ( <span class="count">0</span> ) </span>
+                </a>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li class="home"><a href="">home</a></li>
+
+            <?php $categories = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load(2)->getChildrenCategories();?>
+            <?php foreach($categories as $cat):?>
+                <li>
+                    <a href="<?php $cat->getUrl()?>"><?php echo $cat->getName();?></a>
+                    <div class="level2">
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($cat->getUrl_key())->toHtml() ?>
+                    </div>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</header>
